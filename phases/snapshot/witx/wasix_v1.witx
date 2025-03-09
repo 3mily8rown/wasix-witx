@@ -435,6 +435,15 @@
     (result $error (expected (error $errno)))
   )
 
+  ;;; Retrieves pending signals for a process
+  (@interface func (export "proc_signals_get")
+    ;;; ID of the process to query
+    (param $pid $pid)
+    ;;; Returns the signal or an error
+    (result $signal (expected (error $errno)))
+  )
+
+
   ;;; Read host-provided signal dispositions.
   ;;; The size of the array should match that returned by `proc_signals_sizes_get`.
   (@interface func (export "proc_signals_get")
